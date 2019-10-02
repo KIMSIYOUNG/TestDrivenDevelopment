@@ -6,7 +6,6 @@ public class Money {
         this.amount = amount;
         this.currency = currency;
     }
-
     static Money franc(int amount) {
         return new Money(amount, "CHF");
     }
@@ -21,12 +20,14 @@ public class Money {
         return amount == money.amount
                 && currency().equals(money.currency());
     }
-
     public String currency() {
         return currency;
     }
-
     public String toString(){
         return amount + "  " + currency;
     }
+    Money plus(Money addend){
+        return new Money(amount + addend.amount, currency);
+    }
+
 }
