@@ -1,5 +1,5 @@
 
-public class Money {
+public abstract class Money {
     protected int amount;
 
     public boolean equals(Object object){
@@ -7,4 +7,11 @@ public class Money {
         return amount == money.amount
                 &&getClass().equals(money.getClass());
     }
+    public static Dollar dollar(int amount){
+        return new Dollar(amount);
+    }
+    public static Franc franc(int amount){
+        return new Franc(amount);
+    }
+    abstract Money times(int multiplier);
 }
